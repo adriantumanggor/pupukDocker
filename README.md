@@ -77,9 +77,3 @@ Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) unt
 
 Selamat menggunakan Docker!
 ```
-
-### Instruksi Penggunaan
-- Ganti `https://github.com/username-anda/docker-compose-overpower.git` dengan URL repositori Git Anda yang sebenarnya.
-- Sesuaikan bagian mana pun atau tambahkan detail lebih lanjut sesuai kebutuhan.
-
-Silakan beri tahu jika Anda memerlukan modifikasi lebih lanjut!
