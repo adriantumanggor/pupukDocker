@@ -76,4 +76,3 @@ Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) unt
 - [phpMyAdmin](https://www.phpmyadmin.net/) - untuk mengelola database MySQL melalui antarmuka web.
 
 Selamat menggunakan Docker!
-```
