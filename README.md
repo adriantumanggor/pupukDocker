@@ -1,6 +1,3 @@
-Berikut adalah contoh file `README.md` yang menggunakan bahasa Indonesia dan memiliki struktur yang jelas:
-
-```markdown
 # docker-compose overpower
 
 Selamat datang di repositori **docker-compose overpower**! Proyek ini dirancang untuk membangun lingkungan Docker yang kuat dengan menggunakan pgAdmin untuk mengelola database PostgreSQL, serta rencana untuk mengintegrasikan phpMyAdmin untuk MySQL.
