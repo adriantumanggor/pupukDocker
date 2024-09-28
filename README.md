@@ -1,7 +1,4 @@
 # docker-compose overpower
-
-Selamat datang di repositori **docker-compose overpower**! Proyek ini dirancang untuk membangun lingkungan Docker yang kuat dengan menggunakan pgAdmin untuk mengelola database PostgreSQL, serta rencana untuk mengintegrasikan phpMyAdmin untuk MySQL.
-
 ## Struktur Repositori
 
 Repositori ini berisi direktori dan file berikut:
@@ -58,7 +55,7 @@ Skrip `start.sh` mencakup perintah berikut untuk mengelola konteks SELinux:
 
 ```bash
 sudo chcon -Rt svirt_sandbox_file_t ~/docker_compose
-sudo semanage fcontext -a -t svirt_sandbox_file_t '/home/tumanggors/docker_compose(/.*)?'
+sudo semanage fcontext -a -t svirt_sandbox_file_t '/home/users/docker_compose(/.*)?'
 sudo restorecon -Rv ~/docker_compose
 ```
 
