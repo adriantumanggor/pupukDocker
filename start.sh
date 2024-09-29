@@ -3,7 +3,7 @@
 # start.sh - Script to set SELinux contexts for Docker Compose projects
 
 # Function to print error messages and exit
-error_exit() {
+error_exit() {  
     echo "[ERROR] $1"
     exit 1
 }
