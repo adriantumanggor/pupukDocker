@@ -13,24 +13,25 @@ This repository contains the following directories and files:
 
 Run the `start.sh` script in the following scenarios:
 
-### After Creating a New Docker Compose Directory
+### 1. After Creating a New Docker Compose Directory
 
 Run `start.sh` to apply the proper SELinux contexts, ensuring Docker has permission to access files within the directory.
-- Example: `bash ./start.sh ~/docker_compose`
 
-### When Encountering Permission Issues with SELinux
+- **Example:** `bash ./start.sh ~/docker_compose`
+
+### 2. When Encountering Permission Issues with SELinux
 
 Run `start.sh` to resolve permission issues due to SELinux denying access to files or directories.
 
-### After Moving or Copying Files to the Docker Directory
+### 3. After Moving or Copying Files to the Docker Directory
 
 Run `start.sh` to ensure files have the correct SELinux contexts for Docker containers.
 
-### After System Changes or SELinux Policy Updates
+### 4. After System Changes or SELinux Policy Updates
 
 Run `start.sh` to restore the correct SELinux contexts after system changes or policy updates.
 
-### On Initial Setup of Docker Projects on a New System
+### 5. On Initial Setup of Docker Projects on a New System
 
 Run `start.sh` to ensure necessary directories are properly configured for Docker access on a new system with SELinux.
 
@@ -48,3 +49,4 @@ The primary goal of this repository is to provide a seamless Docker experience f
 - **PostgreSQL with pgAdmin:** Easily manage PostgreSQL databases through a web interface.
 - **MySQL with phpMyAdmin:** Integration for managing MySQL databases in the future.
 - **SELinux Compatibility:** Ensure Docker containers can access local directories securely.
+
