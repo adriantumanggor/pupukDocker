@@ -1,4 +1,4 @@
-# docker-compose Keren cing
+# Virtual Enviroment bersama docker-compose
 ## Struktur Repositori
 
 Repositori ini berisi direktori dan file berikut:
