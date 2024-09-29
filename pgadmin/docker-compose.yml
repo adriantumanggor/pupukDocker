@@ -30,7 +30,7 @@ services:
       PGADMIN_CONFIG_DEFAULT_SERVER: "0.0.0.0"
     volumes:
       - pgadmin_data:/var/lib/pgadmin
-      - ../postgresql:/var/lib/pgadmin/storage/admin_example.com/postgresql_scripts:ro
+      - ../postgresql:/postgresql
 
     ports:
       - "5050:5050"

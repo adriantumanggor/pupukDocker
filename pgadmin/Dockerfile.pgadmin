@@ -32,9 +32,6 @@ RUN useradd -ms /bin/bash pgadmin
 RUN mkdir -p /var/lib/pgadmin /var/log/pgadmin
 RUN chown pgadmin:pgadmin /var/lib/pgadmin /var/log/pgadmin
 
-# Switch to pgadmin user
-USER pgadmin
-
 # Set the working directory
 WORKDIR /var/lib/pgadmin
 
