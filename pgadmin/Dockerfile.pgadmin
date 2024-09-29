@@ -1,0 +1,48 @@
+FROM debian:bullseye-slim
+
+# Install dependencies
+RUN apt-get update && apt-get install -y \
+    python3-pip \
+    python3-setuptools \
+    python3-wheel \
+    libpq-dev \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set environment variables
+ENV PGADMIN_DEFAULT_EMAIL=admin@example.com
+ENV PGADMIN_DEFAULT_PASSWORD=adminpassword
+ENV PGADMIN_SETUP_EMAIL=admin@example.com
+ENV PGADMIN_SETUP_PASSWORD=adminpassword
+ENV PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=True
+ENV PGADMIN_CONFIG_LOGIN_BANNER="Authorized users only!"
+ENV PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10
+ENV PGADMIN_CONFIG_SERVER_MODE=False
+ENV PGADMIN_LISTEN_PORT=5050
+ENV PGADMIN_CONFIG_DEFAULT_SERVER=0.0.0.0
+
+# Install pgAdmin4
+RUN pip3 install pgadmin4
+
+# Create the pgadmin user
+RUN useradd -ms /bin/bash pgadmin
+
+# Create required directories
+RUN mkdir -p /var/lib/pgadmin /var/log/pgadmin
+RUN chown pgadmin:pgadmin /var/lib/pgadmin /var/log/pgadmin
+
+# Switch to pgadmin user
+USER pgadmin
+
+# Set the working directory
+WORKDIR /var/lib/pgadmin
+
+# Add a startup script
+RUN echo '#!/bin/bash' > /var/lib/pgadmin/run_pgadmin.sh && \
+    echo 'pgadmin4' >> /var/lib/pgadmin/run_pgadmin.sh && \
+    chmod +x /var/lib/pgadmin/run_pgadmin.sh
+
+EXPOSE 5050
+
+CMD ["/var/lib/pgadmin/run_pgadmin.sh"]

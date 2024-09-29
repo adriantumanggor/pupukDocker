@@ -1,29 +1,41 @@
-version: '3'
+version: '3.8'
+
 services:
   postgres:
     image: postgres:14
-    container_name: postgres
+    container_name: postgres_db
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: db_test  
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5430:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
 
   pgadmin:
-    build: .  # Build from the Dockerfile in the current directory
+    build:
+      context: .
+      dockerfile: Dockerfile.pgadmin
     container_name: pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin
-    ports:
-      - "5050:80"
-    depends_on:
-      - postgres
+      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: "True"
+      PGADMIN_CONFIG_LOGIN_BANNER: "Authorized users only!"
+      PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: "10"
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      PGADMIN_LISTEN_PORT: "5050"
+      PGADMIN_CONFIG_DEFAULT_SERVER: "0.0.0.0"
     volumes:
+      - pgadmin_data:/var/lib/pgadmin
       - ../postgresql:/postgresql_scripts:z  # Mount your SQL directory here
 
+    ports:
+      - "5050:5050"
+    restart: unless-stopped
+
 volumes:
-  pgdata:
+  postgres_data:
+  pgadmin_data:
